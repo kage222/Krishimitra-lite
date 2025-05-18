@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KrishiMitra Lite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1fbe3;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #4caf50;
+    }
+    select, textarea, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #output {
+      background: #e8f5e9;
+      padding: 15px;
+      border-radius: 8px;
+      min-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KrishiMitra Lite</h1>
+
+    <label for="language">Language:</label>
+    <select id="language">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="te">Telugu</option>
+    </select>
+
+    <label for="userInput">Ask about your crop or land:</label>
+    <textarea id="userInput" rows="4" placeholder="e.g. What to plant in June in dry soil?"></textarea>
+
+    <button onclick="getResponse()">Get Advice</button>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function getResponse() {
+      const input = document.getElementById('userInput').value.trim();
+      const lang = document.getElementById('language').value;
+      const output = document.getElementById('output');
+
+      if (!input) {
+        output.innerText = "Please enter your question first.";
+        return;
+      }
+
+      // Dummy logic for now (you can replace with API/AI later)
+      let response = "";
+      if (lang === "en") {
+        response = "Based on your input, suitable crops might be groundnut, millets, or pulses. Use nitrogen-rich fertilizer.";
+      } else if (lang === "hi") {
+        response = "आपके इनपुट के आधार पर, उपयुक्त फसलें मूंगफली, बाजरा या दालें हो सकती हैं। नाइट्रोजन युक्त उर्वरक का उपयोग करें।";
+      } else if (lang === "te") {
+        response = "మీ ఇన్‌పుట్ ఆధారంగా, సరైన పంటలు పల్లీలు, సిరిధాన్యాలు లేదా పప్పులు కావచ్చు. నత్రజనక ఖాద్యం వాడండి.";
+      }
+
+      output.innerText = response;
+    }
+  </script>
+</body>
+</html>
